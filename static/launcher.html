@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 工作台</title>
+    <script src="/static/js/theme.js"></script>
+    <style>
+        :root {
+            --bg: #fcfcfc;
+            --card: #ffffff;
+            --border: #efefef;
+            --border-hover: #d9d9d9;
+            --text: #121212;
+            --muted: #8a8a8a;
+            --chip: #f5f5f5;
+            --shadow: 0 18px 44px rgba(0, 0, 0, .07);
+        }
+        html.theme-dark, body.theme-dark {
+            --bg: #111722;
+            --card: #0f141d;
+            --border: #242d3b;
+            --border-hover: #3a475b;
+            --text: #e5e9f0;
+            --muted: #8f9aab;
+            --chip: #171d29;
+            --shadow: 0 18px 44px rgba(0, 0, 0, .35);
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; min-height: 100%; }
+        body {
+            display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 48px 28px;
+            color: var(--text); background: var(--bg);
+            font-family: 'Space Grotesk', "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            transition: background .3s, color .3s;
+        }
+        .launcher { width: min(1040px, 100%); }
+        .eyebrow { margin: 0 0 12px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .22em; }
+        h1 { margin: 0; font-size: clamp(30px, 4vw, 44px); font-weight: 800; letter-spacing: -.02em; }
+        .intro { margin: 12px 0 40px; color: var(--muted); font-size: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+        .card {
+            position: relative; display: flex; flex-direction: column; gap: 14px; min-height: 250px; padding: 26px;
+            border: 1px solid var(--border); border-radius: 24px; color: inherit; background: var(--card);
+            text-decoration: none; transition: border-color .2s, transform .2s, box-shadow .2s;
+        }
+        .card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: var(--shadow); }
+        .card:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+        .icon {
+            display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px;
+            color: #fff; background: var(--accent);
+        }
+        .icon svg { width: 24px; height: 24px; }
+        .card h2 { margin: 6px 0 0; font-size: 20px; font-weight: 800; }
+        .card p { flex: 1; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+        .foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+        .domain { padding: 4px 10px; border-radius: 999px; color: var(--muted); background: var(--chip); font-size: 11px; font-weight: 600; }
+        .open { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 800; }
+        .open svg { width: 14px; height: 14px; transition: transform .2s; }
+        .card:hover .open svg { transform: translate(2px, -2px); }
+        @media (max-width: 820px) {
+            .grid { grid-template-columns: 1fr; }
+            .card { min-height: 0; }
+        }
+    </style>
+</head>
+<body>
+    <main class="launcher">
+        <p class="eyebrow">AI STUDIO</p>
+        <h1 data-l10n="title">选择工作台</h1>
+        <p class="intro" data-l10n="intro">图像、对话与视频创作，各自独立运行，在新标签页中打开。</p>
+        <section class="grid">
+            <a class="card" style="--accent:#ec6b19" href="https://image.tangzhi.org" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"></path></svg></span>
+                <h2 data-l10n="imageTitle">生图工作台</h2>
+                <p data-l10n="imageDesc">文生图、图生图与多参考图生成，支持提示词优化。</p>
+                <span class="foot"><span class="domain">image.tangzhi.org</span><span class="open"><span data-l10n="open">打开</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></span></span>
+            </a>
+            <a class="card" style="--accent:#2f6fed" href="https://chat.tangzhi.org" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+                <h2 data-l10n="chatTitle">聊天工作台</h2>
+                <p data-l10n="chatDesc">多模型对话与联网搜索，对话中可直接调起生图。</p>
+                <span class="foot"><span class="domain">chat.tangzhi.org</span><span class="open"><span data-l10n="open">打开</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></span></span>
+            </a>
+            <a class="card" style="--accent:#23201c" href="https://vip.tangzhi.org" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M10 9.5v5l4.5-2.5z"></path></svg></span>
+                <h2 data-l10n="videoTitle">生视频工作台</h2>
+                <p data-l10n="videoDesc">文生视频、首尾帧与多图参考，内置提示词库。</p>
+                <span class="foot"><span class="domain">vip.tangzhi.org</span><span class="open"><span data-l10n="open">打开</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></span></span>
+            </a>
+        </section>
+    </main>
+    <script>
+        // 语言跟随主页面(studio-lang 消息 / 已保存的语言)
+        const TEXT = {
+            zh: { title: '选择工作台', intro: '图像、对话与视频创作，各自独立运行，在新标签页中打开。', imageTitle: '生图工作台', imageDesc: '文生图、图生图与多参考图生成，支持提示词优化。', chatTitle: '聊天工作台', chatDesc: '多模型对话与联网搜索，对话中可直接调起生图。', videoTitle: '生视频工作台', videoDesc: '文生视频、首尾帧与多图参考，内置提示词库。', open: '打开' },
+            en: { title: 'Choose a workspace', intro: 'Image, chat and video studios run independently and open in a new tab.', imageTitle: 'Image Studio', imageDesc: 'Text-to-image, image-to-image and multi-reference generation with prompt optimization.', chatTitle: 'Chat Studio', chatDesc: 'Multi-model chat with web search, able to launch image generation from a conversation.', videoTitle: 'Video Studio', videoDesc: 'Text-to-video, first/last frame and multi-reference video with a prompt library.', open: 'Open' },
+        };
+        function applyLang(lang) {
+            const dict = TEXT[lang === 'en' ? 'en' : 'zh'];
+            document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+            document.title = lang === 'en' ? 'AI Studio' : 'AI 工作台';
+            document.querySelectorAll('[data-l10n]').forEach(el => { el.textContent = dict[el.dataset.l10n]; });
+        }
+        try { applyLang(localStorage.getItem('studio_lang') || 'zh'); } catch (e) { applyLang('zh'); }
+        window.addEventListener('message', event => {
+            if (event.origin && event.origin !== location.origin) return;
+            if (event.data?.type === 'studio-lang') applyLang(event.data.lang);
+        });
+    </script>
+</body>
+</html>

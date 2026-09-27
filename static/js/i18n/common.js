@@ -31,6 +31,8 @@
         "nav.gpt": { zh: "GPT 对话", en: "GPT Chat" },
         "nav.canvas": { zh: "无限画布", en: "Infinite Canvas" },
         "nav.videoStudio": { zh: "生视频", en: "Video Studio" },
+        "nav.onlineHint": { zh: "在新标签页打开生图工作台", en: "Open Image Studio in a new tab" },
+        "nav.gptHint": { zh: "在新标签页打开聊天工作台", en: "Open Chat Studio in a new tab" },
         "nav.videoStudioHint": { zh: "在新标签页打开生视频工作台", en: "Open Video Studio in a new tab" },
         "nav.assetManager": { zh: "素材库", en: "Assets" },
         "bulk.manage": { zh: "管理", en: "Manage" },
