@@ -28,7 +28,7 @@
         "nav.imageEdit": { zh: "图片编辑", en: "Image Edit" },
         "nav.angle": { zh: "角度控制", en: "Angle Control" },
         "nav.online": { zh: "在线生图", en: "Online Image" },
-        "nav.gpt": { zh: "GPT 对话", en: "GPT Chat" },
+        "nav.gpt": { zh: "对话", en: "Chat" },
         "nav.canvas": { zh: "无限画布", en: "Infinite Canvas" },
         "nav.videoStudio": { zh: "生视频", en: "Video Studio" },
         "nav.onlineHint": { zh: "在新标签页打开生图工作台", en: "Open Image Studio in a new tab" },
